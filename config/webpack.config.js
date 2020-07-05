@@ -5,7 +5,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: './src/client/index.html',
   filename: './index.html'
 });
- module.exports = {
+module.exports = {
   entry: './src/client/index.js',
   output: {
     path: path.resolve('dist'),
