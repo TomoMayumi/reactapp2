@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React/*, { useState }*/ from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import Header from './header'
+//import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+//import Header from './header'
+import Dashboard from './Dashboard'
 
 fetch('/api/').then(response => {
   console.log(response.json());
 })
 
 export const Index = () => {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
   return (
-    <BrowserRouter>
+    <Dashboard></Dashboard>
+  );
+    /*<BrowserRouter>
       <div>Hello React!</div>
       <Header/>
       <Switch>
@@ -24,8 +27,7 @@ export const Index = () => {
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button>
-    </BrowserRouter>
-  );
-};
+    </BrowserRouter>*/
+  };
 
 ReactDOM.render(<Index />, document.getElementById('index'));
