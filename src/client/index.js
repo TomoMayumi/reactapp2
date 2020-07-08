@@ -1,6 +1,6 @@
 import React/*, { useState }*/ from 'react';
 import ReactDOM from 'react-dom';
-//import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 //import Header from './header'
 import Dashboard from './Dashboard'
 
@@ -11,7 +11,9 @@ fetch('/api/').then(response => {
 export const Index = () => {
   //const [count, setCount] = useState(0);
   return (
-    <Dashboard></Dashboard>
+    <BrowserRouter>
+      <Dashboard></Dashboard>
+    </BrowserRouter>
   );
     /*<BrowserRouter>
       <div>Hello React!</div>

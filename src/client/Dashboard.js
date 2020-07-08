@@ -18,10 +18,14 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import SettingsIcon from '@material-ui/icons/Settings';
 import { mainListItems, secondaryListItems } from './listItems';
 import Deposits from './Deposits';
 import Orders from './Orders';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import UserMenu from './UserMenu';
+import Problems from './Problems';
+import Contests from './Contests';
 
 function Copyright() {
   return (
@@ -155,11 +159,21 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            Coding Contest
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <IconButton color="inherit">
+            <Badge color="secondary">
+              <SettingsIcon />
+            </Badge>
+          </IconButton>
+          <IconButton color="inherit">
+            <Badge color="secondary">
+              <UserMenu />
             </Badge>
           </IconButton>
         </Toolbar>
@@ -183,10 +197,9 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <BrowserRouter>
-          <Switch>
-            <Route exact path='/'>
-              <Container maxWidth="lg" className={classes.container}>
+          <Container maxWidth="lg" className={classes.container}>
+            <Switch>
+              <Route exact path='/'>
                 <Grid container spacing={3}>
                   {/* Chart */}
                   <Grid item xs={12} md={8} lg={9}>
@@ -210,15 +223,19 @@ export default function Dashboard() {
                 <Box pt={4}>
                   <Copyright />
                 </Box>
-              </Container>
-            </Route>
-            <Route exact path='/contests'>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Route>
-          </Switch>
-        </BrowserRouter>
+              </Route>
+              <Route exact path='/contests'>
+                <Paper className={classes.paper}>
+                  <Contests />
+                </Paper>
+              </Route>
+              <Route exact path='/problems'>
+                <Paper className={classes.paper}>
+                  <Problems />
+                </Paper>
+              </Route>
+            </Switch>
+          </Container>
       </main>
     </div>
   );

@@ -9,11 +9,10 @@ import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <div>
-    <BrowserRouter>
       <Link to='/'>
         <ListItem button>
           <ListItemIcon>
@@ -54,7 +53,6 @@ export const mainListItems = (
           <ListItemText primary="Integrations" />
         </ListItem>
       </Link>
-    </BrowserRouter>
   </div>
 );
 
